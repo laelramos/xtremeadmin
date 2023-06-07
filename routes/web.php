@@ -14,7 +14,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
-Route::get('/usuarios', [UserController::class, 'listUser']);
+Route::resource('users', UserController::class);
+
+Route::get('/novo-usuario', [UserController::class, 'create'])->name('users.create');

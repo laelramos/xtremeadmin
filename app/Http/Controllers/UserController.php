@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function listUser()
+    public function index()
     {
-        // $user = new User();
-        // $user->name = 'lael ramos';
-        // $user->email = 'lael@lael.com';
-        // $user->password = Hash::make(value:'123');
-        // $user->save();
-        echo "<h1>listagem de usuarios</h1>";
+        $users = User::all();
+        return view('users.ListUsers', compact('users'));
+    }
+
+
+    public function create()
+    {
+        return view('users.NewUser');
     }
 }
